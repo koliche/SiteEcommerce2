@@ -27,7 +27,7 @@ class StripeController extends Controller
     {
         Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
         Stripe\Charge::create ([
-                "amount" =>Cart::getTotal(),
+                "amount" =>(integer)Cart::getTotal(),
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "This payment is tested purpose phpcodingstuff.com"
